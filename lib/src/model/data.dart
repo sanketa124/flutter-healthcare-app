@@ -1,4 +1,4 @@
-final doctorMapList = [
+final List<Map<String, dynamic>> doctorMapList = [
   {
     "name": "Dr. David Kemp",
     "type": "Heart Sergeon",

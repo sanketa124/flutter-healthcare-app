@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_healthcare_app/screens/welcome/welcome_screen.dart';
 import 'package:flutter_healthcare_app/src/pages/home_page.dart';
 import 'package:flutter_healthcare_app/src/theme/light_color.dart';
 import 'package:flutter_healthcare_app/src/theme/text_styles.dart';
 import 'package:flutter_healthcare_app/src/theme/extention.dart';
 
 class SplashPage extends StatefulWidget {
-  SplashPage({Key key}) : super(key: key);
+  SplashPage({Key? key}) : super(key: key);
 
   @override
   _SplashPageState createState() => _SplashPageState();
@@ -15,7 +16,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
      Future.delayed(Duration(seconds: 2)).then((_) {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomePage()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => WelcomeScreen()));
     });
     super.initState();
   }

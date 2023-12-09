@@ -9,21 +9,21 @@ import 'package:flutter_healthcare_app/src/theme/text_styles.dart';
 import 'package:flutter_healthcare_app/src/theme/theme.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  List<DoctorModel> doctorDataList;
+  late List<DoctorModel> doctorDataList;
   @override
   void initState() {
     doctorDataList = doctorMapList.map((x) => DoctorModel.fromJson(x)).toList();
     super.initState();
   }
 
-  Widget _appBar() {
+  PreferredSizeWidget _appBar() {
     return AppBar(
       elevation: 0,
       backgroundColor: Theme.of(context).backgroundColor,
@@ -136,7 +136,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _categoryCard(String title, String subtitle,
-      {Color color, Color lightColor}) {
+      {Color? color, Color? lightColor}) {
     TextStyle titleStyle = TextStyles.title.bold.white;
     TextStyle subtitleStyle = TextStyles.body.bold.white;
     if (AppTheme.fullWidth(context) < 392) {
@@ -156,7 +156,7 @@ class _HomePageState extends State<HomePage> {
             BoxShadow(
               offset: Offset(4, 4),
               blurRadius: 10,
-              color: lightColor.withOpacity(.8),
+              color: lightColor!.withOpacity(.8),
             )
           ],
         ),
@@ -174,8 +174,14 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
+                    Image.asset(
+                      doctorMapList[0]['image'],
+                      height: 50,
+                      width: 50,
+                      fit: BoxFit.contain,
+                    ),
                     Flexible(
                       child: Text(title, style: titleStyle).hP8,
                     ),
@@ -278,7 +284,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ).ripple(() {
-        Navigator.pushNamed(context, "/DetailPage", arguments: model);
+        Navigator.pushNamed(context, "/DetailPage", arguments: model.toJson());
       }, borderRadius: BorderRadius.all(Radius.circular(20))),
     );
   }

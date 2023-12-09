@@ -8,18 +8,18 @@ import 'package:flutter_healthcare_app/src/widgets/progress_widget.dart';
 import 'package:flutter_healthcare_app/src/widgets/rating_start.dart';
 
 class DetailPage extends StatefulWidget {
-  DetailPage({Key key, this.model}) : super(key: key);
-  final DoctorModel model;
+  DetailPage({Key? key, this.model}) : super(key: key);
+  final DoctorModel? model;
 
   @override
   _DetailPageState createState() => _DetailPageState();
 }
 
 class _DetailPageState extends State<DetailPage> {
-  DoctorModel model;
+  late DoctorModel model;
   @override
   void initState() {
-    model = widget.model;
+    model = widget.model!;
     super.initState();
   }
 
@@ -169,10 +169,14 @@ class _DetailPageState extends State<DetailPage> {
                             SizedBox(
                               width: 10,
                             ),
-                            FlatButton(
-                              color: Theme.of(context).primaryColor,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)
+                            TextButton(
+                              style: ButtonStyle(
+                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(10)
+                                      )
+                                  ),
+                                backgroundColor: MaterialStateProperty.all<Color>(Theme.of(context).primaryColor)
                               ),
                               onPressed: () {},
                               child: Text("Make an appointment", style: TextStyles.titleNormal.white,).p(10),

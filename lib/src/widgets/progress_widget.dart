@@ -7,12 +7,12 @@ import 'package:flutter_healthcare_app/src/theme/theme.dart';
 
 class ProgressWidget extends StatefulWidget {
   ProgressWidget(
-      {Key key,
-      this.value,
+      {Key? key,
+      required this.value,
       this.totalValue = 100,
-      this.activeColor,
-      this.backgroundColor,
-      this.title, this.durationTime})
+      required this.activeColor,
+      required this.backgroundColor,
+      required this.title, this.durationTime})
       : super(key: key);
   final double totalValue;
   final double value;
@@ -26,9 +26,9 @@ class ProgressWidget extends StatefulWidget {
 
 class _ProgressWidgetState extends State<ProgressWidget>
     with TickerProviderStateMixin {
-  double progress;
-  Color activeColor;
-  Color backgroundColor;
+  late double progress;
+  late Color activeColor;
+  late Color backgroundColor;
   @override
   void initState() {
    

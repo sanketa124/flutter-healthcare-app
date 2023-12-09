@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_healthcare_app/src/theme/light_color.dart';
 
 class RatingStar extends StatefulWidget {
-  RatingStar({Key key, this.rating}) : super(key: key);
+  RatingStar({Key? key, required this.rating}) : super(key: key);
   final double rating;
 
   @override
