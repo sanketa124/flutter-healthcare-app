@@ -62,7 +62,7 @@ class SignUpScreen extends StatelessWidget {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => SplashPage()));
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomePage()));
                           /*if (_formKey.currentState!.validate()) {
                             // Sign up form is done
                             // It saved our inputs
