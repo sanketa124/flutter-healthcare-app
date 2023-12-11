@@ -70,7 +70,7 @@ class _DetailPageState extends State<DetailPage> {
                     color: Colors.white,
                   ),
                   child: SingleChildScrollView(
-                    physics: BouncingScrollPhysics(),
+                    physics: AlwaysScrollableScrollPhysics(),
                     controller: scrollController,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
